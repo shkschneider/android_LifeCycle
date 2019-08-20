@@ -30,6 +30,7 @@ class MainFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.v(TAG, "onCreate: ${savedInstanceState != null}")
         super.onCreate(savedInstanceState)
+        // TODO restored if savedInstanceState!=null
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -52,6 +53,7 @@ class MainFragment : Fragment() {
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         Log.v(TAG, "onViewStateRestored: ${savedInstanceState != null}")
         super.onViewStateRestored(savedInstanceState)
+        // TODO restore
     }
 
     override fun onStart() {
@@ -74,6 +76,7 @@ class MainFragment : Fragment() {
     override fun onSaveInstanceState(outState: Bundle) {
         Log.v(TAG, "onSaveInstanceState")
         super.onSaveInstanceState(outState)
+        // TODO save
     }
 
     override fun onStop() {

@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         Log.v(TAG, "onCreate: ${savedInstanceState != null}")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        // TODO restored if savedInstanceState!=null
     }
 
     override fun onRestart() {
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         Log.v(TAG, "onRestoreInstanceState: ${savedInstanceState != null}")
         super.onRestoreInstanceState(savedInstanceState)
+        // TODO restore
     }
 
     override fun onResumeFragments() {
@@ -60,6 +62,7 @@ class MainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle?) {
         Log.v(TAG, "onSaveInstanceState")
         super.onSaveInstanceState(outState)
+        // TODO save
     }
 
     override fun onStop() {
