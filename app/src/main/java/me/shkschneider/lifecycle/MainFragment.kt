@@ -7,11 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.fragment_main.*
 
 private val TAG = "LifeCycle:MainFragment"
 
 class MainFragment : Fragment() {
+
+    val viewModel: MainViewModel by lazy { ViewModelProviders.of(this).get(MainViewModel::class.java) }
 
     init {
         Log.v(TAG, "init")
@@ -20,6 +24,7 @@ class MainFragment : Fragment() {
     override fun onAttach(context: Context?) {
         Log.v(TAG, "onAttach")
         super.onAttach(context)
+        viewModel.tag = TAG
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
