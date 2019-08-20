@@ -23,9 +23,6 @@ class MainActivity : AppCompatActivity() {
         Log.v(TAG, "onCreate")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        restart.setOnClickListener { recreate() }
-        finish.setOnClickListener { finish() }
     }
 
     override fun onRestart() {
@@ -36,6 +33,11 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         Log.v(TAG, "onStart")
         super.onStart()
+    }
+
+    override fun onResumeFragments() {
+        Log.v(TAG, "onResumeFragments")
+        super.onResumeFragments()
     }
 
     override fun onResume() {
