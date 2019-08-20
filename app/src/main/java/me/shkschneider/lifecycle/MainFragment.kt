@@ -23,7 +23,7 @@ class MainFragment : Fragment() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.v(TAG, "onCreate")
+        Log.v(TAG, "onCreate: ${savedInstanceState != null}")
         super.onCreate(savedInstanceState)
     }
 
@@ -33,15 +33,20 @@ class MainFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        Log.v(TAG, "onViewCreated")
+        Log.v(TAG, "onViewCreated: ${savedInstanceState != null}")
         restart.setOnClickListener { requireActivity().recreate() }
         finish.setOnClickListener { requireActivity().finish() }
         super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
-        Log.v(TAG, "onActivityCreated")
+        Log.v(TAG, "onActivityCreated: ${savedInstanceState != null}")
         super.onActivityCreated(savedInstanceState)
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        Log.v(TAG, "onViewStateRestored: ${savedInstanceState != null}")
+        super.onViewStateRestored(savedInstanceState)
     }
 
     override fun onStart() {
@@ -59,6 +64,11 @@ class MainFragment : Fragment() {
     override fun onPause() {
         Log.v(TAG, "onPause")
         super.onPause()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        Log.v(TAG, "onSaveInstanceState")
+        super.onSaveInstanceState(outState)
     }
 
     override fun onStop() {

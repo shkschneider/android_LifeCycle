@@ -15,12 +15,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun attachBaseContext(newBase: Context?) {
-        super.attachBaseContext(newBase)
         Log.v(TAG, "attachBaseContext")
+        super.attachBaseContext(newBase)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.v(TAG, "onCreate")
+        Log.v(TAG, "onCreate: ${savedInstanceState != null}")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
@@ -33,6 +33,11 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         Log.v(TAG, "onStart")
         super.onStart()
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        Log.v(TAG, "onRestoreInstanceState: ${savedInstanceState != null}")
+        super.onRestoreInstanceState(savedInstanceState)
     }
 
     override fun onResumeFragments() {
@@ -50,6 +55,11 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         Log.v(TAG, "onPause")
         super.onPause()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        Log.v(TAG, "onSaveInstanceState")
+        super.onSaveInstanceState(outState)
     }
 
     override fun onStop() {
