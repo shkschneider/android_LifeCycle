@@ -29,7 +29,6 @@ class MainFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.v(TAG, "onCreate: ${savedInstanceState != null}")
         super.onCreate(savedInstanceState)
-        // TODO restored if savedInstanceState!=null
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -44,12 +43,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (savedInstanceState == null) {
-            /**
-             * This custom view is accentColor by default (upon creation)
-             * and gets RED when created for the first time (no restoration).
-             * The exercice will be to keep its current color accross
-             * configuration change and process death.
-             */
+            // Sets RED for the first time
             custom.setBackgroundColor(Color.RED)
         }
     }
@@ -62,7 +56,10 @@ class MainFragment : Fragment() {
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         Log.v(TAG, "onViewStateRestored: ${savedInstanceState != null}")
         super.onViewStateRestored(savedInstanceState)
-        // TODO restore
+        savedInstanceState?.getInt(COLOR)?.let {
+            // Restores RED
+            custom.setBackgroundColor(it)
+        }
     }
 
     override fun onStart() {
@@ -85,7 +82,8 @@ class MainFragment : Fragment() {
     override fun onSaveInstanceState(outState: Bundle) {
         Log.v(TAG, "onSaveInstanceState")
         super.onSaveInstanceState(outState)
-        // TODO save
+        // Saves RED
+        outState.putInt(COLOR, custom.backgroundColor)
     }
 
     override fun onStop() {
@@ -111,6 +109,7 @@ class MainFragment : Fragment() {
     companion object {
 
         private const val TAG = "LifeCycle:MainFragment"
+        private const val COLOR = "COLOR"
 
     }
 

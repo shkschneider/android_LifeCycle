@@ -1,22 +1,25 @@
 package me.shkschneider.lifecycle
 
+import android.R
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.util.AttributeSet
 import android.util.Log
-import android.view.ViewGroup
-import android.widget.Switch
-import android.R
-import android.R.attr.data
-import android.content.res.TypedArray
 import android.util.TypedValue
+import android.view.ViewGroup
 
 class CustomView : ViewGroup {
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+
+    val backgroundColor: Int
+        get() = background.run {
+            if (this is ColorDrawable) this.color else Color.TRANSPARENT
+        }
 
     init {
         Log.v(TAG, "init")
