@@ -6,8 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 
-private val TAG = "LifeCycle:MainActivity"
-
 class MainActivity : AppCompatActivity() {
 
     init {
@@ -73,6 +71,12 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         Log.v(TAG, "onDestroy")
         super.onDestroy()
+    }
+
+    companion object {
+
+        private const val TAG = "LifeCycle:MainActivity"
+
     }
 
 }

@@ -16,6 +16,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
+    <me.shkschneider.lifecycle.CustomView
+            android:id="@+id/custom"
+            android:checked="false"
+            android:layout_width="42dp"
+            android:layout_height="42dp"/>
+
     <Button
             android:id="@+id/restart"
             android:layout_width="match_parent"
